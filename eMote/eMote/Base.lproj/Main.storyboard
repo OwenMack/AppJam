@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5sw-hB-pKi">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--Game-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="eMote" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TnA-C6-1gd">
+                                <rect key="frame" x="273" y="285" width="55" height="30"/>
+                                <state key="normal" title="Button1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgE-PE-Gg3">
+                                <rect key="frame" x="273" y="351" width="55" height="30"/>
+                                <state key="normal" title="Button2">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3i-YO-idr">
+                                <rect key="frame" x="273" y="416" width="55" height="30"/>
+                                <state key="normal" title="Button3">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FpZ-13-z9L">
+                                <rect key="frame" x="273" y="469" width="55" height="30"/>
+                                <state key="normal" title="Button4">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUp-hG-17p">
+                                <rect key="frame" x="277" y="114" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vgE-PE-Gg3" firstAttribute="top" secondItem="TnA-C6-1gd" secondAttribute="bottom" constant="36" id="5VI-b2-unW"/>
+                            <constraint firstAttribute="centerX" secondItem="T3i-YO-idr" secondAttribute="centerX" id="G1Y-yq-FUe"/>
+                            <constraint firstItem="TnA-C6-1gd" firstAttribute="top" secondItem="OUp-hG-17p" secondAttribute="bottom" constant="142" id="GhX-BS-fIZ"/>
+                            <constraint firstItem="OUp-hG-17p" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="70" id="H3n-it-sXm"/>
+                            <constraint firstItem="FpZ-13-z9L" firstAttribute="top" secondItem="T3i-YO-idr" secondAttribute="bottom" constant="36" id="N3x-1Q-qtp"/>
+                            <constraint firstAttribute="centerX" secondItem="vgE-PE-Gg3" secondAttribute="centerX" id="fKC-BO-SJm"/>
+                            <constraint firstItem="T3i-YO-idr" firstAttribute="top" secondItem="vgE-PE-Gg3" secondAttribute="bottom" constant="36" id="kla-Zt-hU7"/>
+                            <constraint firstAttribute="centerX" secondItem="TnA-C6-1gd" secondAttribute="centerX" id="mh4-Gi-xju"/>
+                            <constraint firstItem="OUp-hG-17p" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="oSt-lg-fuy"/>
+                            <constraint firstAttribute="centerX" secondItem="OUp-hG-17p" secondAttribute="centerX" id="phC-Tq-pGi"/>
+                            <constraint firstAttribute="centerX" secondItem="FpZ-13-z9L" secondAttribute="centerX" id="u7u-Py-SNs"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="H3n-it-sXm"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Game" id="jid-ry-wij"/>
+                    <connections>
+                        <outlet property="button1" destination="TnA-C6-1gd" id="Fou-xP-JJg"/>
+                        <outlet property="imageButton" destination="OUp-hG-17p" id="his-Pg-71m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2658" y="321"/>
+        </scene>
+        <!--Title View Controller-->
+        <scene sceneID="07M-fB-4cx">
+            <objects>
+                <viewController id="BPP-JS-sHS" customClass="TitleViewController" customModule="eMote" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QgQ-eK-RIK"/>
+                        <viewControllerLayoutGuide type="bottom" id="4DH-jm-InV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g7P-Pl-yru">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBG-wb-jRs">
+                                <rect key="frame" x="259" y="272" width="83" height="30"/>
+                                <state key="normal" title="Open Game">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="gPw-Ij-Q3o"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="HBG-wb-jRs" secondAttribute="centerX" id="Ip8-cv-n9D"/>
+                            <constraint firstAttribute="centerY" secondItem="HBG-wb-jRs" secondAttribute="centerY" id="YbK-aG-T7e"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Svb-hp-TiZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nqt-zX-8zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1971" y="321"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qPJ-0B-yjJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5sw-hB-pKi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cbe-07-9le">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BPP-JS-sHS" kind="relationship" relationship="rootViewController" id="lh6-3v-hRz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Icb-1R-Oxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1159" y="321"/>
+        </scene>
+    </scenes>
+</document>
