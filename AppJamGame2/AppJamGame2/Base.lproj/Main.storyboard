@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eFO-aH-0fQ">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--eMote-->
+        <scene sceneID="4St-YE-Cv8">
+            <objects>
+                <viewController id="f1G-Zx-klx" customClass="MainWindowViewController" customModule="AppJamGame2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="30m-5B-TYJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Qf-iM-46b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u0Q-Ch-EwT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6C-qH-l9Y">
+                                <rect key="frame" x="272" y="273" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="eFO-aH-0fQ" kind="show" identifier="MainToGame2" id="D2A-sF-d4t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aub-Dw-OiZ">
+                                <rect key="frame" x="277" y="356" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlg-pg-RSp">
+                                <rect key="frame" x="260" y="197" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="eFO-aH-0fQ" kind="show" identifier="MainToGame" id="iCm-2s-XR1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="c6C-qH-l9Y" secondAttribute="centerX" id="82g-a2-xms"/>
+                            <constraint firstAttribute="centerX" secondItem="dlg-pg-RSp" secondAttribute="centerX" id="aSX-S6-Ka4"/>
+                            <constraint firstAttribute="centerX" secondItem="aub-Dw-OiZ" secondAttribute="centerX" id="znk-E0-hnG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="eMote" id="byj-uW-2EX"/>
+                    <connections>
+                        <outlet property="segueButton" destination="dlg-pg-RSp" id="2aP-yT-EPk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fzc-OJ-CFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3563" y="435"/>
+        </scene>
+        <!--Quiz-->
+        <scene sceneID="6hh-Cm-puK">
+            <objects>
+                <viewController id="eFO-aH-0fQ" customClass="GameViewController" customModule="AppJamGame2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lei-Q9-md3"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZGT-yd-ry3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JuN-gB-ej1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPB-us-THS">
+                                <rect key="frame" x="277" y="95" width="46" height="30"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QP-Gl-5YZ">
+                                <rect key="frame" x="273" y="270" width="55" height="30"/>
+                                <state key="normal" title="Button1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vN-8h-vSG">
+                                <rect key="frame" x="273" y="333" width="55" height="30"/>
+                                <state key="normal" title="Button2">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iK2-Tj-O02">
+                                <rect key="frame" x="273" y="383" width="55" height="30"/>
+                                <state key="normal" title="Button3">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRs-31-nDy">
+                                <rect key="frame" x="273" y="442" width="55" height="30"/>
+                                <state key="normal" title="Button4">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="iPB-us-THS" secondAttribute="centerX" id="8Nu-UN-fVL"/>
+                            <constraint firstItem="5QP-Gl-5YZ" firstAttribute="top" secondItem="iPB-us-THS" secondAttribute="bottom" constant="145" id="9y8-eW-TMv"/>
+                            <constraint firstItem="iK2-Tj-O02" firstAttribute="top" secondItem="8vN-8h-vSG" secondAttribute="bottom" constant="20" id="Km6-RX-WqC"/>
+                            <constraint firstItem="8vN-8h-vSG" firstAttribute="top" secondItem="5QP-Gl-5YZ" secondAttribute="bottom" constant="33" id="PC0-LK-2pM"/>
+                            <constraint firstItem="rRs-31-nDy" firstAttribute="top" secondItem="iK2-Tj-O02" secondAttribute="bottom" constant="29" id="Vw9-qB-IlE"/>
+                            <constraint firstAttribute="centerX" secondItem="rRs-31-nDy" secondAttribute="centerX" id="W7I-AR-W64"/>
+                            <constraint firstItem="iPB-us-THS" firstAttribute="top" secondItem="Lei-Q9-md3" secondAttribute="bottom" constant="75" id="iNu-iG-S2u"/>
+                            <constraint firstAttribute="centerX" secondItem="8vN-8h-vSG" secondAttribute="centerX" id="kee-bC-aeo"/>
+                            <constraint firstAttribute="centerX" secondItem="iK2-Tj-O02" secondAttribute="centerX" id="lfI-uI-qWP"/>
+                            <constraint firstAttribute="centerX" secondItem="5QP-Gl-5YZ" secondAttribute="centerX" id="tyY-HL-A2Q"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Quiz" id="VqX-lt-toY"/>
+                    <connections>
+                        <outlet property="TheButton" destination="iPB-us-THS" id="0AM-39-U0f"/>
+                        <outlet property="button1" destination="5QP-Gl-5YZ" id="0zT-Yx-uHO"/>
+                        <outlet property="button2" destination="8vN-8h-vSG" id="0CT-9r-FOT"/>
+                        <outlet property="button3" destination="iK2-Tj-O02" id="Z4U-ee-0yl"/>
+                        <outlet property="button4" destination="rRs-31-nDy" id="Yv3-Pf-80B"/>
+                        <outlet property="theButton" destination="iPB-us-THS" id="Z2S-5k-Jyk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L8U-Ku-M4r" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4240" y="435"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LeT-tq-U1z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wzm-sH-piG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kPf-C0-DTY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="f1G-Zx-klx" kind="relationship" relationship="rootViewController" id="oZH-cS-pYR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rdS-fx-DNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2751" y="435"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="iCm-2s-XR1"/>
+    </inferredMetricsTieBreakers>
+</document>
