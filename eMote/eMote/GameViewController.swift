@@ -15,8 +15,13 @@ class GameViewController: UIViewController {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var answerLabel: UILabel!
+    
     private var emotionClasses = [EmotionClass]()
     private var currentObject: Int!
+    private var winningAnswer: String!
+    
+    var blankImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,11 +50,10 @@ class GameViewController: UIViewController {
         imageButton.setTitle("", forState: .Normal)
         imageButton.adjustsImageWhenDisabled = false
         imageButton.setBackgroundImage(UIImage(named: "TestImage1"),forState: .Normal)
+        answerLabel.text = ""
         
-        button1.setTitle("One", forState: .Normal)
-        button2.setTitle("Two", forState: .Normal)
-        button3.setTitle("Three", forState: .Normal)
-        button4.setTitle("Four", forState: .Normal)
+        
+        SetInitalButtonLayout()
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,18 +75,33 @@ class GameViewController: UIViewController {
     }
     
     
-    
-    
     private func AnyButtonClicked(clicked: UIButton){
-        
+        if(clicked.currentTitle == winningAnswer){
+            FadeInAnswer("Correct")
+        }else{
+            FadeInAnswer("Wrong")
+        }
         var newCorrectButton = NewRandomButton()
-        
+        winningAnswer = newCorrectButton.newName
         var randomButtons = GetRandomNumbers(4, max: 4, insertRandomly: newCorrectButton.randomNum)
         SetNewRandomButtons(randomButtons)
         
+        
+        println("winningAnswer is - \(winningAnswer)")
 //        imageButton.setBackgroundImage(newCorrectButton.newImage, forState: .Normal)
     }
     
+    private func SetInitalButtonLayout(){
+        var newCorrectButton = NewRandomButton()
+        winningAnswer = newCorrectButton.newName
+        var randomButtons = GetRandomNumbers(4, max: 4, insertRandomly: newCorrectButton.randomNum)
+        SetNewRandomButtons(randomButtons)
+        
+        println("winningAnswer is - \(winningAnswer)")
+        //        imageButton.setBackgroundImage(newCorrectButton.newImage, forState: .Normal)
+    }
+    
+    //will get all the info for the new winning button
     private func NewRandomButton() -> (randomNum: Int, randomNumImageNum: Int, newName: String){//), newImage: UIImage) {
         var random = Int(arc4random_uniform(UInt32(emotionClasses.count)))
         var randomImageNum = Int(arc4random_uniform(UInt32(emotionClasses[random].GetRealFace().count)))
@@ -93,37 +112,36 @@ class GameViewController: UIViewController {
     }
     
     private func SetNewRandomButtons(randomButtons: [Int]) {
-        button1.setTitle(emotionClasses[randomButtons[0]].GetName(), forState: .Normal)
-        button2.setTitle(emotionClasses[randomButtons[1]].GetName(), forState: .Normal)
-        button3.setTitle(emotionClasses[randomButtons[2]].GetName(), forState: .Normal)
-        button4.setTitle(emotionClasses[randomButtons[3]].GetName(), forState: .Normal)
+        UIView.animateWithDuration(0.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            self.button1.alpha = 0.0
+            self.button2.alpha = 0.0
+            self.button3.alpha = 0.0
+            self.button4.alpha = 0.0
+            }, completion: {
+                (finished: Bool) -> Void in
+                
+                self.button1.setTitle(self.emotionClasses[randomButtons[0]].GetName(), forState: .Normal)
+                self.button2.setTitle(self.emotionClasses[randomButtons[1]].GetName(), forState: .Normal)
+                self.button3.setTitle(self.emotionClasses[randomButtons[2]].GetName(), forState: .Normal)
+                self.button4.setTitle(self.emotionClasses[randomButtons[3]].GetName(), forState: .Normal)
+                
+                UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                    self.button1.alpha = 1.0
+                    self.button2.alpha = 1.0
+                    self.button3.alpha = 1.0
+                    self.button4.alpha = 1.0
+                    }, completion: nil)
+        })
     }
+
     
+
     
     //Will get random nums
     //amount - how many you want
     //max - the highest the number can be - will get ( 0 -> n-1)
-    private func GetRandomNumbers(amount: Int,max: Int) -> [Int]{
-        var nums = [Int]()
-        var nextNum : Int
-        var checkingNum = [Int]()
-    
-        for(var i = 0;i<amount;i++){
-            nextNum = Int(arc4random_uniform(UInt32(max)))
-            checkingNum = nums.filter({$0 == nextNum})
-
-            while(checkingNum.count > 0){
-                nextNum = Int(arc4random_uniform(UInt32(max)))
-                checkingNum = nums.filter({$0 == nextNum})
-            }
-
-            nums.append(nextNum)
-        }
-
-        return nums
-    }
-    
-    private func GetRandomNumbers(amount: Int,max: Int,insertRandomly: Int)->[Int]{
+    //insertRandomly - will insert this randomly into the new array, without duplicating it
+    func GetRandomNumbers(amount: Int,max: Int,insertRandomly: Int)->[Int]{
         var nums = [Int]()
         var nextNum : Int
         var checkingNum = [Int]()
@@ -146,6 +164,58 @@ class GameViewController: UIViewController {
         
         return nums
     }
+    
+    func FadeInAnswer(var theAnswer: String){
+        UIView.animateWithDuration(0.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            self.answerLabel.alpha = 0.0
+            }, completion: {
+                (finished: Bool) -> Void in
+                
+                self.answerLabel.text = theAnswer
+                
+                UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                    self.answerLabel.alpha = 1.0
+                    }, completion: nil)
+            })
+        }
+    
+//    func FadeOutAnswer(){
+//        println("in the func")
+//        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+//            self.answerLabel.alpha = 0.0
+//            }, completion: {
+//                (finished: Bool) -> Void in
+//                
+//                self.answerLabel.text = nil
+//                
+//                UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+//                    self.answerLabel.alpha = 0.0
+//                    }, completion: nil)
+//        })
+//    }
+    
+    
+    //Don't know if will need
+//    private func GetRandomNumbers(amount: Int,max: Int) -> [Int]{
+//        var nums = [Int]()
+//        var nextNum : Int
+//        var checkingNum = [Int]()
+//        
+//        for(var i = 0;i<amount;i++){
+//            nextNum = Int(arc4random_uniform(UInt32(max)))
+//            checkingNum = nums.filter({$0 == nextNum})
+//            
+//            while(checkingNum.count > 0){
+//                nextNum = Int(arc4random_uniform(UInt32(max)))
+//                checkingNum = nums.filter({$0 == nextNum})
+//            }
+//            
+//            nums.append(nextNum)
+//        }
+//        
+//        return nums
+//    }
+    
 
 }
 

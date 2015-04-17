@@ -43,7 +43,7 @@
                                     <action selector="Button3Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6bC-cR-phg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FpZ-13-z9L">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FpZ-13-z9L">
                                 <rect key="frame" x="273" y="469" width="55" height="30"/>
                                 <state key="normal" title="Button4">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,17 +58,28 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5g-lS-p5X">
+                                <rect key="frame" x="225" y="231" width="151" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="r5g-lS-p5X" firstAttribute="top" secondItem="OUp-hG-17p" secondAttribute="bottom" constant="96" id="2XX-vk-Nbc"/>
+                            <constraint firstAttribute="centerX" secondItem="r5g-lS-p5X" secondAttribute="centerX" id="30g-pw-6sW"/>
                             <constraint firstItem="vgE-PE-Gg3" firstAttribute="top" secondItem="TnA-C6-1gd" secondAttribute="bottom" constant="36" id="5VI-b2-unW"/>
+                            <constraint firstItem="r5g-lS-p5X" firstAttribute="top" secondItem="OUp-hG-17p" secondAttribute="bottom" constant="87" id="EvP-hI-sq3"/>
                             <constraint firstAttribute="centerX" secondItem="T3i-YO-idr" secondAttribute="centerX" id="G1Y-yq-FUe"/>
-                            <constraint firstItem="TnA-C6-1gd" firstAttribute="top" secondItem="OUp-hG-17p" secondAttribute="bottom" constant="142" id="GhX-BS-fIZ"/>
                             <constraint firstItem="OUp-hG-17p" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="70" id="H3n-it-sXm"/>
                             <constraint firstItem="FpZ-13-z9L" firstAttribute="top" secondItem="T3i-YO-idr" secondAttribute="bottom" constant="36" id="N3x-1Q-qtp"/>
                             <constraint firstAttribute="centerX" secondItem="vgE-PE-Gg3" secondAttribute="centerX" id="fKC-BO-SJm"/>
+                            <constraint firstAttribute="centerX" secondItem="r5g-lS-p5X" secondAttribute="centerX" id="gHy-pi-OG0"/>
                             <constraint firstItem="T3i-YO-idr" firstAttribute="top" secondItem="vgE-PE-Gg3" secondAttribute="bottom" constant="36" id="kla-Zt-hU7"/>
                             <constraint firstAttribute="centerX" secondItem="TnA-C6-1gd" secondAttribute="centerX" id="mh4-Gi-xju"/>
+                            <constraint firstItem="TnA-C6-1gd" firstAttribute="top" secondItem="r5g-lS-p5X" secondAttribute="bottom" constant="8" id="mqn-44-AaS"/>
+                            <constraint firstItem="TnA-C6-1gd" firstAttribute="top" secondItem="r5g-lS-p5X" secondAttribute="bottom" constant="24" id="oLf-nr-hG1"/>
                             <constraint firstItem="OUp-hG-17p" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="oSt-lg-fuy"/>
                             <constraint firstAttribute="centerX" secondItem="OUp-hG-17p" secondAttribute="centerX" id="phC-Tq-pGi"/>
                             <constraint firstAttribute="centerX" secondItem="FpZ-13-z9L" secondAttribute="centerX" id="u7u-Py-SNs"/>
@@ -76,11 +87,15 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="H3n-it-sXm"/>
+                                <exclude reference="2XX-vk-Nbc"/>
+                                <exclude reference="gHy-pi-OG0"/>
+                                <exclude reference="oLf-nr-hG1"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Game" id="jid-ry-wij"/>
                     <connections>
+                        <outlet property="answerLabel" destination="r5g-lS-p5X" id="Bu0-gx-Lz6"/>
                         <outlet property="button1" destination="TnA-C6-1gd" id="Fou-xP-JJg"/>
                         <outlet property="button2" destination="vgE-PE-Gg3" id="zlw-Wq-Z0h"/>
                         <outlet property="button3" destination="T3i-YO-idr" id="wXB-Sq-PBk"/>
