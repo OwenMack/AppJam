@@ -23,8 +23,8 @@ public class EmotionClass{
     private var name: String!
     private var theEnum: EmotionEnum!
     private var icon: UIImage!
-    private var animatedFace: [UIImage]!
-    private var realFace: [UIImage]!
+    private var animatedFace = [UIImage]()
+    private var realFace = [UIImage]()
     
     
     init(var newName: String, var newEnum: EmotionEnum, var newIcon: UIImage,
