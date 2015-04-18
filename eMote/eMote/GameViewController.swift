@@ -90,7 +90,6 @@ class GameViewController: UIViewController {
         }
         var newName = emotionClasses[random].GetName()
         
-        
         return (random,randomImageNum,newName,newImage)
     }
     
@@ -256,12 +255,17 @@ class GameViewController: UIViewController {
         
         //declaring all of the emotion classes
         var happyClass     = EmotionClass(newName: "Happy", newEnum: EmotionEnum.HAPPY, newIcon: animatedHappyFaces[0], newAnimatedFace: animatedHappyFaces, newrealFace: realHappyFaces)
-        var sadClass       = EmotionClass(newName: "Sad", newEnum: EmotionEnum.SAD, newIcon: animatedSadFaces[0], newAnimatedFace: animatedSadFaces, newrealFace: realSurprisedFaces)
+        var sadClass       = EmotionClass(newName: "Sad", newEnum: EmotionEnum.SAD, newIcon: animatedSadFaces[0], newAnimatedFace: animatedSadFaces, newrealFace: realSadFaces)
         var angeryClass    = EmotionClass(newName: "Angry", newEnum: EmotionEnum.ANGERY, newIcon: animatedAngeryFaces[0], newAnimatedFace: animatedAngeryFaces, newrealFace: realAngeryFaces)
         var scaredClass    = EmotionClass(newName: "Scared", newEnum: .SCARED, newIcon: animatedScaredFaces[0], newAnimatedFace: animatedScaredFaces, newrealFace: realScaredFaces)
         var disgustedClass = EmotionClass(newName: "Disgusted", newEnum: .DISGUSTED, newIcon: animatedDistedFaces[0], newAnimatedFace: animatedDistedFaces, newrealFace: realDistedFaces)
         var surprisedClass = EmotionClass(newName: "Surprised", newEnum: .SURPRISED, newIcon: animatedSurprisedFaces[0], newAnimatedFace: animatedSurprisedFaces, newrealFace: realSurprisedFaces)
-        
+        println("happyClass \(happyClass.GetRealFace().count)")
+        println("sadClass \(sadClass.GetRealFace().count)")
+        println("angeryClass \(angeryClass.GetRealFace().count)")
+        println("scaredClass \(scaredClass.GetRealFace().count)")
+        println("disgustedClass \(disgustedClass.GetRealFace().count)")
+        println("surprisedClass \(surprisedClass.GetRealFace().count)")
         //adding all of the classes to the array
         theClasses.append(happyClass)
         theClasses.append(sadClass)
