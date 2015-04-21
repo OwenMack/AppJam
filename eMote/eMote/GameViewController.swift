@@ -15,24 +15,29 @@ class GameViewController: UIViewController {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var button5: UIButton!
     @IBOutlet weak var answerLabel: UILabel!
+    
     
     private var emotionClasses = [EmotionClass]()
     private var currentObject: Int!
     private var winningAnswer: String!
     private var blankImage: UIImage!
     private var DoingRealFaces: Bool!
+    private var winningButtonNum: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        DoingRealFaces = true
         
         emotionClasses = SetTheEmotionObjects()
-        answerLabel.text = ""
+        answerLabel.text = " "
+        button5.setTitle("", forState: .Normal)
         
         SetInitalButtonLayout()
+    }
+    
+    func SetDoingRealFaces(newBool: Bool) {
+        DoingRealFaces = newBool
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +56,10 @@ class GameViewController: UIViewController {
     @IBAction func Button4Clicked(sender: AnyObject) {
         AnyButtonClicked(sender as! UIButton)
     }
+    @IBAction func Button5Clicked(sender: UIButton) {
+        ContinueClicked(sender)
+    }
+    
     
     func AnyButtonClicked(clicked: UIButton){
         if(clicked.currentTitle == winningAnswer){
@@ -58,21 +67,41 @@ class GameViewController: UIViewController {
         }else{
             FadeInAnswer("Wrong")
         }
+        
+        button1.enabled = false
+        button2.enabled = false
+        button3.enabled = false
+        button4.enabled = false
+        button5.enabled = true
+        ClearAllButCorrectAnswer(winningButtonNum)
+    }
+    
+    func ContinueClicked(clicked: UIButton){
+        FadeInAnswer(" ")
         var newCorrectButton = NewRandomButton()
         winningAnswer = newCorrectButton.newName
-        println(winningAnswer)
         var randomButtons = GetRandomNumbers(4, max: 4, insertRandomly: newCorrectButton.randomNum)
-        SetNewRandomButtons(randomButtons)
         
+        button1.enabled = true
+        button2.enabled = true
+        button3.enabled = true
+        button4.enabled = true
+        button5.enabled = false
+        SetNewRandomButtons(randomButtons.0)
+        winningButtonNum = randomButtons.1
         emotionImage.image = ResizeImage(newCorrectButton.newImage, targetSize: CGSize(width: 120, height: 120))
     }
+    
+    
     
     func SetInitalButtonLayout(){
         var newCorrectButton = NewRandomButton()
         winningAnswer = newCorrectButton.newName
-        println(winningAnswer)
         var randomButtons = GetRandomNumbers(4, max: 4, insertRandomly: newCorrectButton.randomNum)
-        SetNewRandomButtons(randomButtons)
+        
+        button5.enabled = false
+        SetNewRandomButtons(randomButtons.0)
+        winningButtonNum = randomButtons.1
         emotionImage.image = ResizeImage(newCorrectButton.newImage, targetSize: CGSize(width: 120, height: 120))
     }
     
@@ -94,7 +123,7 @@ class GameViewController: UIViewController {
     }
     
     func SetNewRandomButtons(randomButtons: [Int]) {
-        UIView.animateWithDuration(0.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+        UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
             self.button1.alpha = 0.0
             self.button2.alpha = 0.0
             self.button3.alpha = 0.0
@@ -103,9 +132,82 @@ class GameViewController: UIViewController {
                 (finished: Bool) -> Void in
                 
                 self.button1.setTitle(self.emotionClasses[randomButtons[0]].GetName(), forState: .Normal)
+                self.button1.setBackgroundImage(self.ResizeImage(UIImage(named: "GameButtonImage")!, targetSize: CGSize(width: 140, height: 80)), forState: .Normal)
+                self.button1.setTitleColor(self.emotionClasses[randomButtons[0]].GetButtonColor(), forState: .Normal)
+                
                 self.button2.setTitle(self.emotionClasses[randomButtons[1]].GetName(), forState: .Normal)
+                self.button2.setBackgroundImage(self.ResizeImage(UIImage(named: "GameButtonImage")!, targetSize: CGSize(width: 140, height: 80)), forState: .Normal)
+                self.button2.setTitleColor(self.emotionClasses[randomButtons[1]].GetButtonColor(), forState: .Normal)
+
+                
                 self.button3.setTitle(self.emotionClasses[randomButtons[2]].GetName(), forState: .Normal)
+                self.button3.setBackgroundImage(self.ResizeImage(UIImage(named: "GameButtonImage")!, targetSize: CGSize(width: 140, height: 80)), forState: .Normal)
+                self.button3.setTitleColor(self.emotionClasses[randomButtons[2]].GetButtonColor(), forState: .Normal)
+
+                
                 self.button4.setTitle(self.emotionClasses[randomButtons[3]].GetName(), forState: .Normal)
+                self.button4.setBackgroundImage(self.ResizeImage(UIImage(named: "GameButtonImage")!, targetSize: CGSize(width: 140, height: 100)), forState: .Normal)
+                self.button4.setTitleColor(self.emotionClasses[randomButtons[3]].GetButtonColor(), forState: .Normal)
+                
+                self.button5.setTitle(" ", forState: .Normal)
+                self.button5.setBackgroundImage(self.blankImage, forState: .Normal)
+
+                UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                    self.button1.alpha = 1.0
+                    self.button2.alpha = 1.0
+                    self.button3.alpha = 1.0
+                    self.button4.alpha = 1.0
+                    }, completion: nil)
+        })
+    }
+    
+    
+    func ClearAllButCorrectAnswer(var winningNum: Int) {
+        UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            self.button1.alpha = 0.0
+            self.button2.alpha = 0.0
+            self.button3.alpha = 0.0
+            self.button4.alpha = 0.0
+            }, completion: {
+                (finished: Bool) -> Void in
+                
+
+                
+                switch (winningNum + 1) {
+                    case 1:self.button2.setTitle(" ", forState: .Normal)
+                           self.button2.setBackgroundImage(self.blankImage, forState: .Normal)
+                           self.button3.setTitle(" ", forState: .Normal)
+                           self.button3.setBackgroundImage(self.blankImage, forState: .Normal)
+                           self.button4.setTitle(" ", forState: .Normal)
+                           self.button4.setBackgroundImage(self.blankImage, forState: .Normal)
+                    break;
+                    case 2:self.button1.setTitle(" ", forState: .Normal)
+                           self.button1.setBackgroundImage(self.blankImage, forState: .Normal)
+                           self.button3.setTitle(" ", forState: .Normal)
+                           self.button3.setBackgroundImage(self.blankImage, forState: .Normal)
+                           self.button4.setTitle(" ", forState: .Normal)
+                           self.button4.setBackgroundImage(self.blankImage, forState: .Normal)
+                    break;
+                    case 3:self.button1.setTitle(" ", forState: .Normal)
+                           self.button1.setBackgroundImage(self.blankImage, forState: .Normal)
+                           self.button2.setTitle(" ", forState: .Normal)
+                           self.button2.setBackgroundImage(self.blankImage, forState: .Normal)
+                           self.button4.setTitle(" ", forState: .Normal)
+                           self.button4.setBackgroundImage(self.blankImage, forState: .Normal)
+                    break;
+                    case 4:self.button1.setTitle(" ", forState: .Normal)
+                           self.button1.setBackgroundImage(self.blankImage, forState: .Normal)
+                           self.button2.setTitle(" ", forState: .Normal)
+                           self.button2.setBackgroundImage(self.blankImage, forState: .Normal)
+                           self.button3.setTitle(" ", forState: .Normal)
+                           self.button3.setBackgroundImage(self.blankImage, forState: .Normal)
+                    break;
+                    default:println("Error - Switch in ClearAllButCorrectAnswer()")
+                    break;
+                }
+                
+                self.button5.setTitle("Continue", forState: .Normal)
+                self.button5.setBackgroundImage(self.ResizeImage(UIImage(named: "GameButtonImage")!, targetSize: CGSize(width: 140, height: 80)), forState: .Normal)
                 
                 UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
                     self.button1.alpha = 1.0
@@ -120,7 +222,7 @@ class GameViewController: UIViewController {
     //amount - how many you want
     //max - the highest the number can be - will get ( 0 -> n-1)
     //insertRandomly - will insert this randomly into the new array, without duplicating it
-    func GetRandomNumbers(amount: Int,max: Int,insertRandomly: Int)->[Int]{
+    func GetRandomNumbers(amount: Int,max: Int,insertRandomly: Int)->([Int], Int){
         var nums = [Int]()
         var nextNum : Int
         var checkingNum = [Int]()
@@ -138,10 +240,11 @@ class GameViewController: UIViewController {
             nums.append(nextNum)
         }
         nextNum = nums.removeAtIndex(0)
+        var insertAt = Int(arc4random_uniform(UInt32(max)))
         
-        nums.insert(nextNum, atIndex: Int(arc4random_uniform(UInt32(max))))
+        nums.insert(nextNum, atIndex: insertAt)
         
-        return nums
+        return (nums,insertAt)
     }
     
     func FadeInAnswer(var theAnswer: String){
@@ -254,18 +357,13 @@ class GameViewController: UIViewController {
         }
         
         //declaring all of the emotion classes
-        var happyClass     = EmotionClass(newName: "Happy", newEnum: EmotionEnum.HAPPY, newIcon: animatedHappyFaces[0], newAnimatedFace: animatedHappyFaces, newrealFace: realHappyFaces)
-        var sadClass       = EmotionClass(newName: "Sad", newEnum: EmotionEnum.SAD, newIcon: animatedSadFaces[0], newAnimatedFace: animatedSadFaces, newrealFace: realSadFaces)
-        var angeryClass    = EmotionClass(newName: "Angry", newEnum: EmotionEnum.ANGERY, newIcon: animatedAngeryFaces[0], newAnimatedFace: animatedAngeryFaces, newrealFace: realAngeryFaces)
-        var scaredClass    = EmotionClass(newName: "Scared", newEnum: .SCARED, newIcon: animatedScaredFaces[0], newAnimatedFace: animatedScaredFaces, newrealFace: realScaredFaces)
-        var disgustedClass = EmotionClass(newName: "Disgusted", newEnum: .DISGUSTED, newIcon: animatedDistedFaces[0], newAnimatedFace: animatedDistedFaces, newrealFace: realDistedFaces)
-        var surprisedClass = EmotionClass(newName: "Surprised", newEnum: .SURPRISED, newIcon: animatedSurprisedFaces[0], newAnimatedFace: animatedSurprisedFaces, newrealFace: realSurprisedFaces)
-        println("happyClass \(happyClass.GetRealFace().count)")
-        println("sadClass \(sadClass.GetRealFace().count)")
-        println("angeryClass \(angeryClass.GetRealFace().count)")
-        println("scaredClass \(scaredClass.GetRealFace().count)")
-        println("disgustedClass \(disgustedClass.GetRealFace().count)")
-        println("surprisedClass \(surprisedClass.GetRealFace().count)")
+        var happyClass     = EmotionClass(newName: "Happy", newEnum: EmotionEnum.HAPPY, newIcon: animatedHappyFaces[0], newAnimatedFace: animatedHappyFaces, newrealFace: realHappyFaces,newButtonColor: UIColor.yellowColor())
+        var sadClass       = EmotionClass(newName: "Sad", newEnum: EmotionEnum.SAD, newIcon: animatedSadFaces[0], newAnimatedFace: animatedSadFaces, newrealFace: realSadFaces,newButtonColor: UIColor.blueColor())
+        var angeryClass    = EmotionClass(newName: "Angry", newEnum: EmotionEnum.ANGERY, newIcon: animatedAngeryFaces[0], newAnimatedFace: animatedAngeryFaces, newrealFace: realAngeryFaces,newButtonColor: UIColor.redColor())
+        var scaredClass    = EmotionClass(newName: "Scared", newEnum: .SCARED, newIcon: animatedScaredFaces[0], newAnimatedFace: animatedScaredFaces, newrealFace: realScaredFaces,newButtonColor: UIColor.purpleColor())
+        var disgustedClass = EmotionClass(newName: "Disgusted", newEnum: .DISGUSTED, newIcon: animatedDistedFaces[0], newAnimatedFace: animatedDistedFaces, newrealFace: realDistedFaces,newButtonColor: UIColor.greenColor())
+        var surprisedClass = EmotionClass(newName: "Surprised", newEnum: .SURPRISED, newIcon: animatedSurprisedFaces[0], newAnimatedFace: animatedSurprisedFaces, newrealFace: realSurprisedFaces,newButtonColor: UIColor.orangeColor())
+
         //adding all of the classes to the array
         theClasses.append(happyClass)
         theClasses.append(sadClass)
@@ -273,7 +371,6 @@ class GameViewController: UIViewController {
         theClasses.append(scaredClass)
         theClasses.append(disgustedClass)
         theClasses.append(surprisedClass)
-        
         
         return theClasses
     }

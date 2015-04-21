@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1F0609B1AE3186B00A2FEBA /* SelectRealOrAnimatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0609A1AE3186B00A2FEBA /* SelectRealOrAnimatedViewController.swift */; };
 		E1F370D31AE042AD00A0339C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F370D21AE042AD00A0339C /* AppDelegate.swift */; };
 		E1F370D51AE042AD00A0339C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F370D41AE042AD00A0339C /* GameViewController.swift */; };
 		E1F370D81AE042AD00A0339C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F370D61AE042AD00A0339C /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E1F0609A1AE3186B00A2FEBA /* SelectRealOrAnimatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectRealOrAnimatedViewController.swift; sourceTree = "<group>"; };
 		E1F370CD1AE042AD00A0339C /* eMote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eMote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F370D11AE042AD00A0339C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1F370D21AE042AD00A0339C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				E1F370D21AE042AD00A0339C /* AppDelegate.swift */,
 				E1F370D41AE042AD00A0339C /* GameViewController.swift */,
 				E1F370D61AE042AD00A0339C /* Main.storyboard */,
+				E1F0609A1AE3186B00A2FEBA /* SelectRealOrAnimatedViewController.swift */,
 				E1F370F61AE0477800A0339C /* TitleViewController.swift */,
 				E1F370D91AE042AD00A0339C /* Images.xcassets */,
 				E1F370DB1AE042AD00A0339C /* LaunchScreen.xib */,
@@ -218,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F0609B1AE3186B00A2FEBA /* SelectRealOrAnimatedViewController.swift in Sources */,
 				E1F370F51AE0460800A0339C /* EmotionClass.swift in Sources */,
 				E1F370F71AE0477800A0339C /* TitleViewController.swift in Sources */,
 				E1F370D51AE042AD00A0339C /* GameViewController.swift in Sources */,
@@ -419,6 +423,7 @@
 				E1F370EE1AE042AD00A0339C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1F370EF1AE042AD00A0339C /* Build configuration list for PBXNativeTarget "eMoteTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +432,7 @@
 				E1F370F11AE042AD00A0339C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

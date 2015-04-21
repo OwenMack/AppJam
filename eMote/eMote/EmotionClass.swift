@@ -25,17 +25,21 @@ public class EmotionClass{
     private var icon: UIImage!
     private var animatedFace = [UIImage]()
     private var realFace = [UIImage]()
+    private var buttonColor: UIColor!
     
     
     init(var newName: String, var newEnum: EmotionEnum, var newIcon: UIImage,
-        var newAnimatedFace: [UIImage],var newrealFace: [UIImage])
+        var newAnimatedFace: [UIImage],var newrealFace: [UIImage], var newButtonColor: UIColor)
     {
         name = newName
         theEnum = newEnum
         icon = newIcon
         animatedFace = newAnimatedFace
         realFace = newrealFace
+        buttonColor = newButtonColor
     }
+    
+    func GetButtonColor()->UIColor {return buttonColor}
     
     func GetName()->String {return name}
   
